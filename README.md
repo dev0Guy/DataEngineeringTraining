@@ -16,7 +16,7 @@ The repository is organized into the following main directories:
 
 ### 🧠 Concepts and Exercises
 
-- All key **data engineering concepts** are explained in the [`resources/`](resources/) directory.
+- All key **data engineering concepts** are explained in the [`resources/`](resources/concepts) directory.
 - Specific **exercise descriptions** and tasks are located in [`resources/exercise/`](resources/exercise/).  
   These guide the implementation tasks across different languages.
 
