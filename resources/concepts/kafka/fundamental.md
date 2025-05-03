@@ -12,8 +12,7 @@ Kafka is widely used for **messaging**, **log aggregation**, **real-time stream 
 
 By understanding these core building blocks, developers and data engineers can design scalable and fault-tolerant systems for a wide range of use cases.
 
-<img src="https://www.researchgate.net/publication/326564203/figure/fig2/AS:849339324837888@1579509683392/Kafkas-architecture-illustrated-with-3-partitions-3-replicas-and-5-brokers.ppm" alt="">
-
+![Kafka Architecture](https://www.researchgate.net/publication/326564203/figure/fig2/AS:849339324837888@1579509683392/Kafkas-architecture-illustrated-with-3-partitions-3-replicas-and-5-brokers.ppm)
 
 [**Cool visualizer**](https://softwaremill.com/kafka-visualisation/)
 
