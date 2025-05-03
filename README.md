@@ -1,4 +1,4 @@
-# DataEngineeringTraining
+# Data Engineering Training
 
 Welcome to the **DataEngineeringTraining** repository!  
 This project is a comprehensive, hands-on training suite for aspiring data engineers, featuring exercises and examples in multiple programming languages. It is designed to provide practical experience with real-world tools and concepts used in modern data engineering workflows.
