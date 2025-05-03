@@ -1,6 +1,6 @@
 # Kafka Fundamentals
 
----
+
 
 ## Topics
 
@@ -14,7 +14,7 @@ A **Kafka topic** is a named stream of data, conceptually similar to a table in 
 
 > ✅ Topics act as the communication channel between producers and consumers.
 
----
+
 
 ## Partitions
 
@@ -28,7 +28,7 @@ To enable scalability and parallelism, **Kafka topics are divided into partition
 
 > ✅ More partitions allow higher throughput but increase complexity for ordering and replication.
 
----
+
 
 ## Offsets
 
@@ -39,7 +39,7 @@ An **offset** is a unique, monotonically increasing ID assigned to every message
 - Kafka stores offsets externally (e.g., in Kafka itself or in Zookeeper), so consumers can resume from where they left off.
 - Consumers are responsible for **committing offsets** to avoid data loss or duplication.
 
----
+
 
 ## Producers
 
@@ -67,7 +67,7 @@ Each Kafka message consists of:
 
 > ✅ The ability to route by key enables **strong message ordering guarantees per key**.
 
----
+
 
 ## Consumers
 
@@ -87,7 +87,7 @@ Since Kafka stores everything as bytes, consumers must **deserialize** the key a
 - The serialization format must be **known ahead of time** and **consistent across producers and consumers**.
 - Changing the message format (e.g., from JSON to Avro) **requires creating a new topic** — format changes mid-topic are not supported.
 
----
+
 
 ## Consumer Groups
 
@@ -102,7 +102,7 @@ Kafka enables **horizontal scalability** of consumers through **consumer groups*
 
 > ✅ Consumer groups allow scaling consumption without duplicating data processing.
 
----
+
 
 ### Offset Management
 
@@ -119,21 +119,21 @@ Kafka uses **offsets** to track which messages have been read by a consumer:
 #### Delivery Guarantees Based on Offset Commit Timing
 
 | Guarantee         | Description                                                                 |
-|-------------------|-----------------------------------------------------------------------------|
+|-|--|
 | At Most Once      | Offset is committed **before** processing. If the process crashes, data is lost. |
 | At Least Once     | Offset is committed **after** processing. On crash, Kafka re-sends the message (may lead to duplicates). |
 | Exactly Once      | Uses Kafka **transactions** to process and commit offset atomically. Requires additional configuration and broker support.|
 
 Kafka clients **automatically commit offsets periodically** unless set to manual mode.
 
----
+
 
 ### Acknowledgment Settings (`acks`)
 
 When a **producer** sends data to Kafka, the **`acks` setting** determines the level of **acknowledgment** required from the broker before considering the message successfully sent.
 
 | `acks` Value | Description                                                                                  | Data Safety     |
-|--------------|----------------------------------------------------------------------------------------------|-----------------|
+|--|-|--|
 | `0`          | Producer does **not wait** for any acknowledgment. No guarantee the message was received.    | ❌ Possible loss |
 | `1`          | Producer waits for **ack from the leader** of the partition. Fast, but leader failure may cause loss. | ⚠️ Somewhat safe |
 | `all`        | Producer waits for **ack from all in-sync replicas (ISR)**. Ensures highest durability.      | ✅ Safe |
@@ -141,7 +141,7 @@ When a **producer** sends data to Kafka, the **`acks` setting** determines the l
 > The higher the acks level, the **more durable** (but slower) the write becomes.
 
 Kafka producers also support **retry**, **idempotency**, and **batching**, which further impact reliability and performance.
----
+
 
 ## Kafka Broker
 
@@ -167,7 +167,7 @@ This enables **full cluster awareness** even if the client only connects to a si
 - If you have **N partitions** and **N brokers**, Kafka will ideally **distribute partitions evenly**, with **one partition per broker**.
 - Kafka ensures **load balancing** across brokers and also supports **replication** for fault tolerance.
 
----
+
 
 ## Replication in Kafka
 
